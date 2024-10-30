@@ -1,13 +1,17 @@
 # scripts/train.py
 
+# import upper route
+import sys 
+sys.path.append("/Volumes/xunyoyo/ACL/Differential-Transformer-PyTorch") 
+
 import torch
 import torch.nn as nn
 from torch.optim import AdamW
 from torch.utils.data import DataLoader
 from transformers import get_linear_schedule_with_warmup  # 用于实现 warmup 策略
 
-from data.dataset import HuggingFaceDataset
-from data.tokenizer import Tokenizer
+from datas.dataset import HuggingFaceDataset
+from datas.tokenizer import Tokenizer
 from DiffTransformer import DiffTransformer
 
 # 超参数设置

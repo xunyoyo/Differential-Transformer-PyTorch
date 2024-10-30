@@ -1,9 +1,12 @@
 # data/dataset.py
+# import upper route
+import sys 
+sys.path.append("/Volumes/xunyoyo/ACL/Differential-Transformer-PyTorch") 
 
 from datasets import load_dataset
 import torch
 from torch.utils.data import Dataset, DataLoader
-from tokenizer import Tokenizer
+from datas.tokenizer import Tokenizer
 
 class HuggingFaceDataset(Dataset):
     """
@@ -71,6 +74,7 @@ class HuggingFaceDataset(Dataset):
 
 # 示例使用
 if __name__ == "__main__":
+    print(sys.path)
     # 初始化分词器和数据集
     tokenizer = Tokenizer()
     dataset = HuggingFaceDataset(dataset_name="wikitext", config_name="wikitext-103-raw-v1", split="train", tokenizer=tokenizer)
