@@ -1,4 +1,4 @@
-# tokenizer.py
+# data/tokenizer.py
 
 import tiktoken
 
