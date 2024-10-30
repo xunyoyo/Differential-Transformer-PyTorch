@@ -53,10 +53,21 @@ class HuggingFaceDataset(Dataset):
             idx (int): 数据项的索引。
 
         Returns:
-            torch.Tensor: token ID 的张量。
+            dict: 包含输入 ID 和注意力掩码的字典。
         """
         token_ids = self.data[idx]
-        return torch.tensor(token_ids, dtype=torch.long)
+        attention_mask = [1] * len(token_ids)
+
+        # 将 token_ids 填充到 max_length
+        padding_length = self.max_length - len(token_ids)
+        if padding_length > 0:
+            token_ids = token_ids + [0] * padding_length
+            attention_mask = attention_mask + [0] * padding_length
+
+        return {
+            'input_ids': torch.tensor(token_ids, dtype=torch.long),
+            'attention_mask': torch.tensor(attention_mask, dtype=torch.long)
+        }
 
 # 示例使用
 if __name__ == "__main__":
