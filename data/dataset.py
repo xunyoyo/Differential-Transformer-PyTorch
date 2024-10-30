@@ -1,4 +1,4 @@
-# dataset.py
+# data/dataset.py
 
 from datasets import load_dataset
 import torch
