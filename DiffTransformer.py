@@ -301,10 +301,10 @@ class DiffTransformer(nn.Module):
 
 if __name__ == "__main__":
     # Define model hyperparameters
-    vocab_size = 30522  # Example vocabulary size (e.g., BERT)
-    d_model = 768
-    num_heads = 12
-    num_layers = 12
+    vocab_size = 100288  # Example vocabulary size (e.g., BERT)
+    d_model = 3072
+    num_heads = 24
+    num_layers = 28
     max_seq_length = 512
     
     # Instantiate the model
