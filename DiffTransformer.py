@@ -327,4 +327,4 @@ if __name__ == "__main__":
     
     # Forward pass
     logits = model(input_ids)  # (batch, N, vocab_size)
-    print(logits.shape)  # Should output: torch.Size([2, 128, 30522])
+    print(logits.shape)  # Should output: torch.Size([2, 128, 100288])
